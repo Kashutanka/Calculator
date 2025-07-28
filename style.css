@@ -1,0 +1,117 @@
+:root {
+    --bg: #1f1331;
+    --txt: #7e4dcb;
+    --accnt: #b58ef0;
+}
+
+body {
+    background-color: var(--bg);
+    color: #7e4dcb;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    gap: 5rem;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Стандартное */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Edge, Safari */
+}
+
+header {
+    text-align: center;
+    background-color: #100a1a8f;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.295);
+}
+
+footer {
+    text-align: center;
+    background-color: #100a1a8f;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.295);
+}
+
+.container {
+    background-color: #7d4dcb67;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 4rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 23%;
+    height: 6.4rem;
+    border-radius: 5rem;
+    margin: 1%;
+    border: 2px solid #7d4dcb00;
+    background-color: #1f133134;
+    font-size: 2rem;
+    padding: 0;
+}
+
+#one:hover,
+#two:hover,
+#three:hover,
+#four:hover,
+#five:hover,
+#sex:hover,
+#seven:hover,
+#eight:hover,
+#nine:hover,
+#null:hover,
+#kropka:hover {
+    border: 2px solid #7d4dcb00;
+    background-color: rgb(53, 32, 83);
+    color: #b58ef0;
+}
+
+#ravno {
+    background-color: #7e4dcb;
+}
+
+#ravno:hover {
+    background-color: #ba8cff;
+}
+
+#delete,
+#undo,
+#prosents,
+#delic,
+#mnozyc,
+#minus,
+#plus,
+#stepen {
+    color: #b58ef0;
+}
+
+#delete:hover,
+#undo:hover,
+#prosents:hover,
+#delic:hover,
+#mnozyc:hover,
+#minus:hover,
+#plus:hover,
+#stepen:hover {
+    background-color: #1f133134;
+}
