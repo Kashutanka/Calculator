@@ -9,7 +9,7 @@ body {
     color: #7e4dcb;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    gap: 5rem;
+    gap: 3rem;
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,6 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 1rem;
     padding: 0.5rem;
     border-radius: 4rem;
 }
@@ -114,4 +113,14 @@ button {
 #plus:hover,
 #stepen:hover {
     background-color: #1f133134;
+}
+
+#display {
+    width: 100%;
+    border-color: #1f133100;
+    background-color: #1f133100;
+    font-size: 2rem;
+    border-radius: 4rem;
+    padding: 1rem 0rem;
+    text-align: end;
 }
