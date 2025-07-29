@@ -5,8 +5,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <style>
+        :root {
+            --bg: #1f1331;
+            --txt: #7e4dcb;
+            --accnt: #b58ef0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #7e4dcb;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            gap: 2.9rem;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Стандартное */
+            -webkit-user-select: none;
+            /* Safari */
+            -ms-user-select: none;
+            /* IE/Edge */
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Edge, Safari */
+        }
+
+        header {
+            text-align: center;
+            background-color: #100a1a8f;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.295);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #100a1a8f;
+            padding: 0.5rem;
+            font-size: 1rem;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.295);
+        }
+
+        .container {
+            background-color: #7d4dcb67;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0.5rem;
+            border-radius: 4rem;
+            width: 444px;
+        }
+
+        #butt {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        button {
+            width: 23%;
+            height: 6.4rem;
+            border-radius: 5rem;
+            margin: 1%;
+            border: 2px solid #7d4dcb00;
+            background-color: #1f133134;
+            font-size: 2rem;
+            padding: 0;
+        }
+
+        #one:hover,
+        #two:hover,
+        #three:hover,
+        #four:hover,
+        #five:hover,
+        #sex:hover,
+        #seven:hover,
+        #eight:hover,
+        #nine:hover,
+        #null:hover,
+        #kropka:hover {
+            border: 2px solid #7d4dcb00;
+            background-color: rgb(53, 32, 83);
+            color: #b58ef0;
+        }
+
+        #ravno {
+            background-color: #7e4dcb;
+        }
+
+        #ravno:hover {
+            background-color: #ba8cff;
+        }
+
+        #delete,
+        #undo,
+        #prosents,
+        #delic,
+        #mnozyc,
+        #minus,
+        #plus,
+        #stepen {
+            color: #b58ef0;
+        }
+
+        #delete:hover,
+        #undo:hover,
+        #prosents:hover,
+        #delic:hover,
+        #mnozyc:hover,
+        #minus:hover,
+        #plus:hover,
+        #stepen:hover {
+            background-color: #1f133134;
+        }
+
+        #display {
+            border-color: #1f133100;
+            background-color: #1f133100;
+            font-size: 3rem;
+            border-radius: 4rem;
+            text-align: end;
+            width: 90%;
+            padding: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,31 +141,53 @@
         <h1>Калькулятор</h1>
     </header>
     <div class="container">
-        <input type="text" id="display" placeholder="Вывод" disabled>
-        <div class="buttons">
-            <button id="delete">C</button>
-            <button id="undo">X</button>
-            <button id="prosents">%</button>
-            <button id="delic">/</button>
-            <button id="seven">7</button>
-            <button id="eight">8</button>
-            <button id="nine">9</button>
-            <button id="mnozyc">*</button>
-            <button id="four">4</button>
-            <button id="five">5</button>
-            <button id="sex">6</button>
-            <button id="minus">-</button>
-            <button id="one">1</button>
-            <button id="two">2</button>
-            <button id="three">3</button>
-            <button id="plus">+</button>
-            <button id="stepen">x^</button>
-            <button id="null">0</button>
-            <button id="kropka">.</button>
-            <button id="ravno">=</button>
+        <input type="text" id="display" disabled>
+        <div class="buttons" id="butt">
+            <button class="buttons" id="delete" value="C">C</button>
+            <button class="buttons" id="undo" value="DEL">DEL</button>
+            <button class="buttons" id="prosents" value="%">%</button>
+            <button class="buttons" id="delic" value="/">/</button>
+            <button class="buttons" id="seven" value="7">7</button>
+            <button class="buttons" id="eight" value="8">8</button>
+            <button class="buttons" id="nine" value="9">9</button>
+            <button class="buttons" id="mnozyc" value="*">*</button>
+            <button class="buttons" id="four" value="4">4</button>
+            <button class="buttons" id="five" value="5">5</button>
+            <button class="buttons" id="sex" value="6">6</button>
+            <button class="buttons" id="minus" value="-">-</button>
+            <button class="buttons" id="one" value="1">1</button>
+            <button class="buttons" id="two" value="2">2</button>
+            <button class="buttons" id="three" value="3">3</button>
+            <button class="buttons" id="plus" value="+">+</button>
+            <button class="buttons" id="stepen" value="**">x^</button>
+            <button class="buttons" id="null" value="0">0</button>
+            <button class="buttons" id="kropka" value=".">.</button>
+            <button class="buttons" id="ravno" value="=">=</button>
         </div>
     </div>
-    
+
+    <script>
+        const dspl = document.getElementById('display')
+        const buttons = document.querySelectorAll('.buttons button') // Все кнопки внутри .buttons
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const val = button.value
+
+                if (val === 'C') dspl.value = ''
+                else if (val === 'DEL') dspl.value = dspl.value.slice(0, -1)
+                else if (val === '=') {
+                    try {
+                        dspl.value = eval(dspl.value)
+                    } catch (e) {
+                        dspl.value = 'Error'
+                    }
+                } else {
+                    dspl.value += val
+                }
+            })
+        })
+    </script>
 </body>
 <footer>Сделано под каштаном. 2025 &copy;</footer>
 
